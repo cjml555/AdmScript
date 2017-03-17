@@ -1,0 +1,61 @@
+#!/bin/bash
+
+clear
+if [ -f /bin/badvpn ]
+  then
+      echo -e "\033[1;31mBadVPN \033[1;36mjá está instalado em seu servidor, caso deseje mesmo instalo-lo novamente escolha a opção 4 do menu anterior ou use o comando \033[1;31m204.\033[0m"
+      echo -e "\033[1;35mPressione enter para continuar.\033[0m"
+      read  #enter
+      true
+      else
+      echo -e "\033[1;36mBadVPN é um programa que libera portas UDP no servidor e assim permitindo serviço VOIP como ligação no WhatsApp, e jogos online.\033[0m"
+      echo " "
+      echo -n -e "\033[1;31mDeseja instalar o BadVPN? (S/n):\033[0m"
+
+     read resp
+     if [ "$resp" == "S" ]; then
+       sleep 1
+       echo -e "\033[1;31mInstalando, aguarde...\033[0m"
+       sleep 2
+       wget https://raw.githubusercontent.com/RicKbrL/badvpn/master/easyinstall && bash easyinstall
+       clear
+       echo -e "\033[1;36mInstalação do BadVPN Concluída :).\033[0m" 
+       sleep 5
+       20342
+       elif [ "$resp" == "n" ]; then
+       clear
+       echo -e "\033[1;31m              Instalação do BadVPN cancelada.\033[0m"
+       fi
+fi
+rm conf
+clear
+if [ -d /etc/squid ] || [ -d /etc/squid3 ]
+  then
+  echo -e "\033[1;31mSquid já está instalado. \033[1;36m Se quiser instalar o Squid novamente use a opção 2 do menor anterior ou o comando \033[1;31m202.\033[0m"
+  echo -e "\033[1;35mPressione enter para continuar.\033[0m"
+  read #enter
+  2
+  true
+  else
+   echo -e "\033[1;36mO Squid é obrigatório para se conectar ao servidor utilizando SSH.\033[0m" 
+   echo -n -e "\033[1;35mDeseja instalar e configurar o Squid ?(S/n):\033[0m"
+   read resp
+   if [ "$resp" == "S" ]; then
+   echo " "
+   echo -e "\033[1;31m         Instalando e configurado o Squid, aguarde...\033[0m"
+   sleep 5
+   wget https://raw.githubusercontent.com/Devimla/Squid/master/conf && bash conf
+   echo " "
+   echo -e "\033[1;31m                   Configuração do servidor  concluída.\033[0m"
+   echo -e "\033[1;36m                   Obrigado por escolher o AdmScript.\033[0m"
+   sleep 3
+   2
+   elif [ "$resp" == "n" ]; then
+   clear
+   echo -e "\033[1;36mTenha em mente que, sem o Squid instalado seus arquivos não irão conectar.\033[0m"
+   sleep 3
+   echo -e "\033[1;31m        Instalação do Squid cancelada.\033[0m"
+   sleep 3
+   2
+  fi
+fi

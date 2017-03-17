@@ -1,0 +1,57 @@
+#!/bin/bash
+
+function tentaracelerar(){
+clear
+echo -e "\033[1;36mA velocidade do servidor pode ou não ser aumentada, tenha em mente que o aumento de velocidade não é 100% garantido.\033[0m"
+echo " "
+echo -e "\033[1;36mCaso ocorra algum erro depois de usar essa opção reverta as alterações usando a opção reverter no menu anterior.\033[0m"
+echo " "
+echo -n -e "\033[1;31mDeseja continuar? (S/n):\033[0m"
+read resp
+if [ "$resp" == "S" ]; then
+    echo "" 
+    echo -e "\033[1;31mTentando acelerar o servidor, aguarde...\033[0m"
+    sleep 3
+    echo "Compression yes" >> /etc/ssh/sshd_config
+    service sshd restart
+    clear
+    echo -e "\033[1;36mTentativa de aceleração concluída.\033[0m" 
+    sleep 4
+    2
+elif [ "$resp" == "n" ]; then
+    echo "" 
+    echo -e "\033[1;31mTentativa de aceleração cancelada.\033[0m"
+    sleep 3
+    2
+fi
+}
+function revertercrompressao(){
+echo -e "\033[1;36mAguarde...\033[0m"
+sed -i '/^Compression yes$/d' /etc/ssh/sshd_config
+service sshd restart
+sleep 2
+echo -e "\033[1;36mConcluído.\033[0m"
+sleep 2
+2
+}
+clear
+echo -e "\033[1;31mPara sair precione Ctrl + C\033
+\033[1;36m 1|Acelerar
+ \033[0;37m |Tentar acelerar seu servidor.
+\033[1;36m 2|Reverter
+ \033[0;37m |Reverter tentativa de aceleração.
+\033[1;36m 3|Voltar
+ \033[0;37m |voltar paro o menu anterior.\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+  tentaracelerar;;
+ 2) 
+  revertercrompressao;;
+ 3)
+  2;;
+  *) 
+  id > /dev/null 2> /dev/null
+esac
+

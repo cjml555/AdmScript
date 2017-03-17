@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo -e "\033[1;36m          Iniciando...\033[0m"
+sleep 2
+badvpn start
+clear
+sleep 2 
+echo -e "\033[1;36m          BadVPN iniciado :).\033[0m"

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;31mPara sair precione Ctrl + C\033
+\033[1;36m 1|Instalar
+ \033[0;37m |Instalar o Bad UDP, programa que libera serviços VOIP (WhatsApp) e jogos online.
+\033[1;36m 2|Iniciar
+ \033[0;37m |Iniciar o Bad UDP.
+\033[1;36m 3|Parar
+ \033[0;37m |Parar o Bad UDP.
+\033[1;36m 4|Voltar
+\033[1;37m |voltar paro o menu anterior.\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+  2041;;
+ 2) 
+  2042;;
+ 3) 
+  2043;;
+ 4)
+  2;;
+  *) 
+  id > /dev/null 2> /dev/null
+esac
+

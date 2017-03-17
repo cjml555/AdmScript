@@ -1,0 +1,34 @@
+
+clear
+echo -e "\033[1;31mATENCAO: \033[1;36mN utilize usuarios do grupo sudo para tunelamento SSH (ehi, ePro, ktc, etc). Caso contrario vc estara deixando seu servidor vulneravel.\033[0m"
+echo -e "\033[1;35mPressione enter para continuar e \033[1;31mCTRL + X para sair.\033[0m"
+read #enter
+clear
+if [ $(id -u) -eq 0 ]; then
+    echo -e "\033[1;36mDigite os dados do novo usuario.\033[0m"
+	read -p "Digite o nome : " username
+	read -s -p "Digite a senha : " password
+	egrep "^$username" /etc/passwd >/dev/null
+	if [ $? -eq 0 ]; then
+		echo -e "\033[1;31m$username ja existe!"
+		exit 1
+	else
+		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+		useradd -m -p $pass $username
+        echo " "
+        clear 
+		[ $? -eq 0 ] && echo " " || echo -e "\033[1;31mDesculpe, mas um ouve um erro ao criar o usuário $username!\033[0m"
+        sleep 1
+        sudo addgroup $username sudo
+        clear
+        echo -e "\033[1;36mUsuario $username foi criado e acionado ao grupo sudo.\033[0m"
+        echo -e "\033[1;35mEm vez de usar o root, use o usuario $username para entrar no servidor.\033[0m"
+        echo " "
+        echo -e "\033[1;31mPressione enter para finalizar.\033[0m"
+        read #enter
+        2
+	fi
+else
+	echo -e "\033[1;31mSomente o root pode adicionar um usuario ao sistema.\033[0m"
+	exit 2
+fi

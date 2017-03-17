@@ -1,0 +1,94 @@
+#!/bin/bash
+
+rm install
+rm instalar.sh
+rm easyinstall
+rm conf
+clear
+echo -e "\033[1;36mIsso irá configurar totalmente o seu servidor, você poderá instalar um Gerenciador, BadVPN e o Squid, todas as opções são opcionais.\033[1;31m Para continuar pressione ENTER para cancelar pressione CTRL + C.\033[0m"
+read #enter
+echo -e "\033[1;35mDevido a problemas de incompatibilidade não tem opção para instalar o PackSSH, para instalar use o comando \033[1;31m2033.\033[0m"
+echo " "
+if [ -f /bin/vpspack ]
+  then
+  echo -e "\033[1;31mVpsPack \033[1;36mjá está instalado.\033[0m"
+  true
+  if [ -f /bin/PackSSH ]
+  then
+  echo -e "\033[1;31mPackSSH \033[1;36mjá está instalado.\033[0m"
+  true
+  fi
+  if [ -f /bin/CONFVPS ]
+  then
+  echo -e "\033[1;31mCONFVPS \033[1;36mjá está instalado,  a instalação do mesmo não é necessária.\033[0m"
+  true
+  fi
+  if [ -f /bin/iniciar ]
+  then
+  echo -e "\033[1;31mBadManager \033[1;36mjá está instalado.\033[0m"
+  true
+  fi
+fi
+echo " "
+echo -e "\033[1;37mEscolha um dos script gerenciador abaixo.
+\033[1;36m1|VpsPack
+ \033[0;37m|Instalar o VpsPack, script feito por Luiz. 
+\033[1;36m2|CONFVPS
+ \033[0;37m|Instalar o CONFVS, script  feito por Glemysson.
+\033[1;36m3|BadManager
+ \033[0;37m|Instalar o BadManager, script feito por BadGuy.
+\033[1;36m4|Nenhum
+ \033[0;37m|Pular e ir para próxima instalação.\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+clear
+echo -e "\033[1;36mVpsPack é um ótimo script para criar, apagar, definir limite de usuários, etc. VpsPack foi criado por Luiz. \033[0m"
+sleep 3
+rm install
+rm install.1
+apt-get update -y 
+apt-get install wget sudo -y
+clear
+echo -e "\033[1;36m        Iniciando instalação do VpsPack.\033[0m"
+sleep 3
+wget https://raw.githubusercontent.com/RicKbrL/VpsPack/master/install && bash install
+echo -e "\033[1;31mPressione enter para continuar.\033[0m"
+read  #enter
+clear
+213c;;
+ 2) 
+echo -e "\033[1;36m CONFVPS é o gerenciador feito por Glemysson.\033[0m"
+rm install
+rm install.1
+clear
+apt-get update -y
+apt-get install wget sudo -y
+clear
+echo -e "\033[1;36m         Iniciando instalação do CONFVPS.\033[0m"
+sleep 3
+wget https://raw.githubusercontent.com/glemysson-Hacker/GlEmYsSoN/master/installer.sh
+chmod +x installer.sh
+bash installer.sh
+sleep 5
+clear
+213c;;
+ 3)
+echo -e "\033[1;36mBadManager é um script para criar, apagar usuários, etc. Seu principal diferencial é o uso de várias linguagem utilizados para sua criação.\033[0m"
+clear
+echo -e "\033[1;36m       Iniciando instalação do BadManager.\033[0m"
+sleep 3
+apt-get update -y 
+apt-get install wget sudo -y
+clear
+sudo apt-get install wget -y && wget -q https://raw.githubusercontent.com/BadGuy552/BadManager/master/instalar.sh && sudo bash instalar.sh && rm instalar.sh
+sleep 5
+clear
+213c;;
+ 4)
+ 213c;;
+ *)
+  id > /dev/null 2> /dev/null
+ esac
+2034C

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo -e "\033[1;36m          Parando.......\033[0m"
+sleep 2
+badvpn stop
+clear
+echo -e "\033[1;36m          BadVPN parado.......\033[0m"

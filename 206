@@ -1,0 +1,26 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;36mEscolha uma das opçoẽs desejado abaixo.\033[0m"
+echo -e "\033[1;36m1 |OS
+  \033[0;37m|Atualizar sistema operacional (Ubuntu ou Debian). 
+\033[1;36m2 |Pacote
+  \033[0;37m|Atualizar lista de pacotes e todos os pacotes instalados para versão mais recentes.
+\033[1;36m3 |Segurança
+  \033[0;37m|Instala atualizações de segurança em sistemas Ubuntu e Debian.
+\033[1;36m4 |Voltar
+  \033[0;37m|Voltar ao menu anterior.\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+  2061;;
+ 2) 
+  2062;;
+  3) 
+  2063;;
+  4)
+  2;;
+  *) 
+  id > /dev/null 2> /dev/null
+esac

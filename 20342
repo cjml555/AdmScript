@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo -e " " 
+echo -n -e "\033[1;35mDeseja iniciar o BadVPN (S/n):\033[0m"
+
+read resp
+if [ "$resp" == "S" ]; then
+   badvpn start
+   clear
+   echo -e "\033[1;36mBadVPN iniciado.\033[0m"
+elif [ "$resp" == "n" ]; then
+    clear
+    echo -e "\033[1;31m         Quando quiser iniciar o BadVPN use o comando \033[1;36m2042.\033[0m"
+    sleep 3
+fi

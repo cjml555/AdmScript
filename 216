@@ -1,0 +1,15 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;31mATENÇÃO: \033[1;36mNão adicione ao grupo sudo usuários que são utilizados para tunelamento SSH (ehi, ePro, ktc, etc). Caso contrário você estará deixando seu servidor vulnerável.\033[0m"
+echo -e "\033[1;35mPressione enter para continuar.\033[0m" 
+read #enter
+clear
+echo -e "\033[1;35mDigite o usuário suário\033[0m"
+read -p ": " usuario
+sleep 3
+sudo gpasswd -a $usuario sudo
+clear
+echo -e "\033[1;31m$usuario \033[1;36mfoi acionado ao grupo sudo.\033[0m"
+sleep 2
+2

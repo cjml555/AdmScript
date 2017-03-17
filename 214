@@ -1,0 +1,17 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;31mATENÇÃO!!!\033[0m \033[1;35mSe prosseguir todos os usuários, (exceto do sistema e o root) de seu servidor serão desconectados e apagados, \033[1;31mESSA AÇÃO NÃO PODERÁ SER REVERTIDA, PROSSIGA COM CAUTELA.\033[0m" 
+echo -n -e "\033[1;36m Deseja continuar?(SIM/n):\033[0m"
+
+read resp
+if [ "$resp" == "SIM" ]; then
+    echo -e "\033[1;31m Aguarde, removendo usuários.....\033[0m"
+    for user in $(grep -v nobody /etc/passwd |awk -F : '$3 > 900 {print $1}'); do kill $(ps -u $user |awk '{print $1}'); userdel $user; done
+    sleep 5
+    clear 
+    echo -e "\033[1;36m Todos os usuários foram removidos com sucesso :).\033[0m"
+elif [ "$resp" == "n" ]; then
+    clear 
+    echo -e "\033[1;36m              Remoção cancelada :)\033[0m"
+fi

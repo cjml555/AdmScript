@@ -1,0 +1,87 @@
+#!/bin/bash
+
+clear
+echo " "
+echo -e "\033[1;37mPara executar um comando escolha uma das opçoẽs abaixo.\033[0m"
+
+echo -e "\033[1;31mPara sair precione Ctrl + C\033
+\033[1;36m1 | Limpar
+  \033[0;37m|Limpar Cache e Swap do servidor.
+\033[1;36m2 | Squid3
+  \033[0;37m|Instalar e configurar o Squid3 no servidor. 
+\033[1;36m3 | Gerenciadores
+  \033[0;37m|Instale o seu gerenciador de VPS favorito.
+\033[1;36m4 | BadVPN
+  \033[0;37m|Instalar o BadVPN, programa que libera portas UDP no servidor, permitindo serviço VOIP como ligação no WhatsApp e jogos online. 
+\033[1;36m5 | Password
+  \033[0;37m|Alterar senha root do servidor. 
+\033[1;36m6 | Atualizar
+  \033[0;37m|Opções de atualizações.
+\033[1;36m7 | Velocidade
+  \033[0;37m|Teste de velocidade desse servidor.
+\033[1;36m8| Remover
+  \033[0;37m|Remover pacotes antigos que não são mais usados e liberar espaço em disco.
+\033[1;36m9| Hostname
+  \033[0;37m|Hostname atual desse servidor.
+\033[1;36m10| Alterar Hostname
+  \033[0;37m|Alterar Hostname atual desse servidor.
+\033[1;36m11| Configurar
+  \033[0;37m|Configurar o servidor, excelente opção para servidores novos.
+\033[1;36m12| Reiniciar 
+  \033[0;37m|Reiniciar o servidor.
+\033[1;36m13| +Velocidade
+  \033[0;37m|Aumentar velocidade de conexão do servidor.
+\033[1;36m14| Deletar tudo
+  \033[0;37m|Apagar todos os usuários.
+\033[1;36m15| Novo usuário
+  \033[0;37m|Criar novo usuário e adicionar ao grupo sudo. \033[1;31mNão é usuário como o VpsPack ou outro gerenciador faz.
+\033[1;36m16| Add ao sudo
+  \033[0;37m|Adicionar usuário ao grupo sudo.
+\033[1;36m17| OpenVPN
+  \033[0;37m|Adicionar usuário ao grupo sudo.
+\033[1;36m18| Voltar
+  \033[0;37m|Voltar para o menu anterior.\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+  201;;
+ 2) 
+  202;;
+ 3)
+  203;;
+ 4)
+  204;;
+ 5)
+  205;;
+ 6)
+  206;;
+ 7)
+  207;;
+ 8)
+  208;;
+ 9)
+  209;;
+ 10)
+  210;;
+ 11)
+  211;;
+ 12)
+  212;;
+ 13)
+  213;;
+ 14)
+  214;;
+ 15)
+  215;;
+ 16)
+   216;;
+ 17)
+  217;;
+ 18)
+  218;;
+ 19)
+  adm;;
+  *)
+  id > /dev/null 2> /dev/null
+esac

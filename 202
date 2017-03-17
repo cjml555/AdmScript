@@ -1,0 +1,18 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;31mATENÇÃO:\033[0m \033[1;36mIsso irá instalar o Squid3 no servidor, a instalação pode demorar alguns minutos.\033[0m"
+echo -n -e "\033[1;31mDeseja continuar com a instalação? (S/n):\033[0m"
+read resp
+if [ "$resp" == "S" ]; then
+    wget https://raw.githubusercontent.com/Devimla/Squid/master/conf && bash conf
+    clear
+    echo -e "\033[1;36mSquid configurado e pronto para rodar.\033[0m"
+    sleep 2
+    2
+elif [ "$resp" == "n" ]; then
+    echo ""
+    echo -e "\033[1;37mINSTALAÇÃO CANCELADA.\033[0m"
+    sleep 1
+    2
+fi

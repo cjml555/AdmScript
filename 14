@@ -1,0 +1,20 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;36m Escolha uma das opçoẽs desejado abaixo.\033[0m"
+echo -e "\033[1;31mPara sair pressione Ctrl + C\033
+ \033[1;36m 1|VpsPack
+\033[1;36m 2|CONFVPS
+\033[1;36m 3|Deletar todos os usuários\033[0m"
+read -p "Opção:" opcao
+
+case $opcao in
+ 1)
+  141;;
+ 2) 
+  142;;
+  3) 
+   143;;
+  *) 
+  id > /dev/null 2> /dev/null
+esac

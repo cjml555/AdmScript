@@ -1,0 +1,17 @@
+#!/bin/bash
+
+clear
+echo -e "\033[1;36mBadManager é um script para criar, apagar usuários, etc. Seu principal diferencial é o uso de várias linguagem utilizados para sua criação.\033[0m"
+echo -e "\033[1;31mPara prosseguir com a instalação aperte ENTER, para cancelar CTRL + C\033[0m"
+read  #enter
+rm install
+rm install.1
+clear
+echo -e "\033[1;36m       Iniciando instalação do BadManager.\033[0m"
+sleep 3
+apt-get update -y 
+apt-get install wget sudo -y
+clear
+sudo apt-get install wget -y && wget -q https://raw.githubusercontent.com/BadGuy552/BadManager/master/instalar.sh && sudo bash instalar.sh && rm instalar.sh
+sleep 5
+203
