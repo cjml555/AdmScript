@@ -2,14 +2,16 @@
 
 if [ -f /bin/badvpn ]
   then
-    echo -e "\033[1;31mErro! BadVPN não está instalado.\033[0m"
-   sleep 3s
-   2
-   true
-   else
-    echo -e "\033[1;31m          Parando..\033[0m"
+  echo -e "\033[1;31mParando..\033[0m"
     sleep 2
     badvpn stop
     clear
-    echo -e "\033[1;36m          BadVPN parado.\033[0m"
+    echo -e "\033[1;36mBadVPN parado.\033[0m"
+    sleep 2
+    2
+   true
+   else
+     echo -e "\033[1;31mErro! BadVPN não está instalado.\033[0m"
+   sleep 3s
+   2
 fi

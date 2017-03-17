@@ -1,25 +1,53 @@
 #!/bin/bash
 
+
 clear
-echo -e "\033[1;36mO BadVPN será instalado, BadVPN é um programa que libera portas UDP no servidor e assim permitindo serviço VOIP como ligação no WhatsApp.\033[0m" 
-echo ""
-echo -e "\033[1;35mPara continuar pressione ENTER, para cancelar pressione CTRL + C.\033[0m"
-read #enter
-echo -e "\033[1;31mInstalando, aguarde....\033[0m"
-sleep 2
-wget https://raw.githubusercontent.com/RicKbrL/badvpn/master/easyinstall && bash easyinstall
-clear
-echo -e "\033[1;36mInstalação Concluída :).\033[0m"
-sleep 1
-echo -e ""
-echo -n -e "\033[1;31m Deseja iniciar o BADVPN?(S/n):\033[0m"
-read resp
-if [ "$resp" == "S" ]; then
+if [ -f /bin/badvpn ]
+  then
+  echo -e "\033[1;35mO BadVPN já está instalado.\033[0m" 
+  echo -e "\033[1;35mA reinstalação não é recomendada.\033[0m" 
+    echo ""
+    echo -n -e "\033[1;31mInstalar BadVPN mesmo assim(S/n)?\033[0m"
+   
+    read resp
+    if [ "$resp" == "S" ]; then
+     echo -e "\033[1;31mInstalando, aguarde....\033[0m" 
+     sleep 2
+     wget https://raw.githubusercontent.com/RicKbrL/badvpn/master/easyinstall && bash easyinstall
+     clear
+     echo -e "\033[1;36mInstalação Concluída :).\033[0m"
+     sleep 1
+     echo -e ""
+     echo -n -e "\033[1;31mDeseja iniciar o BADVPN?(S/n):\033[0m"
+     elif [ "$resp" == "n" ]; then
+        echo "" 
+        echo -e "\033[1;36m              Reinstalação cancelada.\033[0m"
+        sleep 1
+        2
+   fi
+  true
+  else
+    echo -e "\033[1;36mBadVPN é um programa que libera portas UDP no servidor e assim permitindo serviço VOIP como ligação no WhatsApp.\033[0m"
+    sleep 2
+    echo " "
+    echo -e "\033[1;31mInstalando, aguarde....\033[0m"
+    sleep 2
+    wget https://raw.githubusercontent.com/RicKbrL/badvpn/master/easyinstall && bash easyinstall
+    clear
+    echo -e "\033[1;36mInstalação Concluída :).\033[0m"
+    sleep 1
+    echo -e ""
+    echo -n -e "\033[1;31mDeseja iniciar o BADVPN?(S/n):\033[0m"
+    read resp
+    if [ "$resp" == "S" ]; then
        badvpn start
        sleep 2
        2
-elif [ "$resp" == "n" ]; then
-    echo -e "\033[1;37m          Quando quiser iniciar o BadVPN utilize o comando \033[1;31m2042.\033[0m"
-    sleep 1
-    2
+    elif [ "$resp" == "n" ]; then
+      echo -e "\033[1;37m          Quando quiser iniciar o BadVPN utilize o comando \033[1;31m2042.\033[0m"
+      sleep 1
+     2
+   fi
 fi
+
+
