@@ -69,7 +69,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 		echo -e "\033[1;36m1| Adicionar um certificado para um novo usuário.\033[0m"
 		echo -e "\033[1;36m2| Remover o certificado de um usuário existente.\033[0m"
 		echo -e "\033[1;36m3| Desinstalar o OpenVPN.\033[0m"
-		echo -e "\033[1;36m4| Voltar. \033[1;31m"
+		echo -e "\033[1;36m4| Voltar.\033[1;31m"
 		echo ""
 		read -p "Opção: " option
 		case $option in
@@ -152,9 +152,10 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 				fi
 				rm -rf /etc/openvpn
 				rm -rf /usr/share/doc/openvpn*
+                clear
 				echo ""
 				echo -e "\033[1;31mConcluído. OpenVPN desinstalado com sucesso!\033[0m"
-                sleep 5
+                sleep 3
                 2
 			else
 				echo ""
