@@ -68,10 +68,10 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 		echo ""
 		echo -e "\033[1;36mO que você deseja fazer?\033[0m"
 		echo ""
-		echo "\033[1;36m1| Adicionar um certificado para um novo usuário.\033[0m"
-		echo "\033[1;36m2| Remover o certificado de um usuário existente.\033[0m"
-		echo "\033[1;36m3| Desinstalar o OpenVPN.\033[0m"
-		echo "\033[1;36m4| Voltar"
+		echo -e "\033[1;36m1| Adicionar um certificado para um novo usuário.\033[0m"
+		echo -e "\033[1;36m2| Remover o certificado de um usuário existente.\033[0m"
+		echo -e "\033[1;36m3| Desinstalar o OpenVPN.\033[0m"
+		echo -e "\033[1;36m4| Voltar"
 		echo ""
 		read -p "Opção: " option
 		case $option in
@@ -172,7 +172,7 @@ else
 	echo -e "\033[1;36mScript original: \033[1;35mhttps://github.com/Nyr/openvpn-install\033[0m"
 	echo ""
 	echo ""
-	echo -e "\033[1;36mQual  o endereço IPv4 da interface de rede externa do seu servidor.\033[0m"
+	echo -e "\033[1;36mConfirme o endereço IPv4 da interface de rede externa do seu servidor.\033[0m"
 	read -p "Endereço IP: " -e -i $IP IP
 	echo ""
 	echo -e "\033[1;36mEm qual porta você quer rodar o OpenVPN?\033[0m"
@@ -180,12 +180,12 @@ else
 	echo ""
 	echo -e "\033[1;36mQual DNS você quer usar com este VPN?\033[0m"
 	echo ""
-	echo "\033[1;31m* \033[1;35m1 DNS padrão do sistema.\033[0m"
-	echo "\033[1;31m* \033[1;35m2 Google.\033[0m"
-	echo "\033[1;31m* \033[1;35m3 OpenDNS.\033[0m"
-	echo "\033[1;31m* \033[1;35m4 NTT.\033[0m"
-	echo "\033[1;31m* \033[1;35m5 Hurricane Electric.\033[0m"
-	echo "\033[1;31m* \033[1;35m6 Verisign.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m1 DNS padrão do sistema.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m2 Google.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m3 OpenDNS.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m4 NTT.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m5 Hurricane Electric.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m6 Verisign.\033[0m"
 	echo ""
 	read -p "DNS [1-6]: " -e -i 6 DNS
 	echo ""
@@ -194,9 +194,11 @@ else
 	echo ""
 	read -p "Nome do usuário: " -e -i cliente CLIENT
 	echo ""
-	echo -e "\033[1;36mCerto, isso é tudo o que eu precisava. Vamos inalar configurar o seu servidor OpenVPN.\033[0m" 
+	echo -e "\033[1;36mCerto, isso é tudo o que eu precisava. Vamos configurar o seu servidor OpenVPN.\033[0m"
+    echo -e "\033[1;35mA configuração pode demorar bastante, seja paciente..\033[0m."
 	echo ""
-	read -n1 -r -p "Aperte qualquer tecla para continuar..."
+    echo -e "\033[1;31mPressione qualquer tecla para continuar...\033[0m"
+	read -n1 -r -p ""
 		if [[ "$OS" = 'debian' ]]; then
 		apt-get update
 		apt-get install openvpn iptables openssl ca-certificates -y

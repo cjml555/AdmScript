@@ -28,23 +28,33 @@ if [ -f /bin/vpspack ]
   echo -e "\033[1;31mBadManager \033[1;36mjá está instalado.\033[0m"
   true
   fi
+  if [ -f /bin/ajuda ]
+  then
+  echo -e "\033[1;31mVPSManager \033[1;36mjá está instalado.\033[0m"
+  true
+  fi
 fi
 echo " "
-echo -e "\033[1;37mEscolha um dos script gerenciador abaixo.
-\033[1;36m1|VpsPack
- \033[0;37m|Instalar o VpsPack, script feito por Luiz. 
+echo -e "\033[1;37mEscolha um dos script gerenciador abaixo.\033[0m" 
+echo ""
+echo -e "\033[1;36m1|VpsPack
+ \033[0;37m|Instalar o VpsPack. 
 \033[1;36m2|CONFVPS
- \033[0;37m|Instalar o CONFVS, script  feito por Glemysson.
+ \033[0;37m|Instalar o CONFVS.
 \033[1;36m3|BadManager
- \033[0;37m|Instalar o BadManager, script feito por BadGuy.
-\033[1;36m4|Nenhum
- \033[0;37m|Pular e ir para próxima instalação.\033[0m"
+ \033[0;37m|Instalar o BadManager.
+\033[1;36m4|VPSManager
+ \033[0;37m|Instalar VPSManager.
+\033[1;36m5|Nenhum
+ \033[0;37m|Pular essa etapa e não instalar nenhum.
+\033[1;36m6|Voltar
+ \033[0;37m|Voltar ao menu anterior.\033[0m"
 read -p "Opção:" opcao
 
 case $opcao in
  1)
 clear
-echo -e "\033[1;36mVpsPack é um ótimo script para criar, apagar, definir limite de usuários, etc. VpsPack foi criado por Luiz. \033[0m"
+echo -e "\033[1;36mVpsPack é um gerenciador. VpsPack foi criado por Luiz. \033[0m"
 sleep 3
 rm install
 rm install.1
@@ -57,9 +67,9 @@ wget https://raw.githubusercontent.com/RicKbrL/VpsPack/master/install && bash in
 echo -e "\033[1;31mPressione enter para continuar.\033[0m"
 read  #enter
 clear
-213c;;
+211c;;
  2) 
-echo -e "\033[1;36m CONFVPS é o gerenciador feito por Glemysson.\033[0m"
+echo -e "\033[1;36mCONFVPS é o gerenciador criado por Glemysson.\033[0m"
 rm install
 rm install.1
 clear
@@ -71,11 +81,11 @@ sleep 3
 wget https://raw.githubusercontent.com/glemysson-Hacker/GlEmYsSoN/master/installer.sh
 chmod +x installer.sh
 bash installer.sh
-sleep 5
-clear
-213c;;
+echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+read #enter 
+211c;;
  3)
-echo -e "\033[1;36mBadManager é um script para criar, apagar usuários, etc. Seu principal diferencial é o uso de várias linguagem utilizados para sua criação.\033[0m"
+echo -e "\033[1;36mBadManager é um script gerenciador criado por BadGuy. Seu principal diferencial é o uso de várias linguagem utilizados para sua criação.\033[0m"
 clear
 echo -e "\033[1;36m       Iniciando instalação do BadManager.\033[0m"
 sleep 3
@@ -83,12 +93,29 @@ apt-get update -y
 apt-get install wget sudo -y
 clear
 sudo apt-get install wget -y && wget -q https://raw.githubusercontent.com/BadGuy552/BadManager/master/instalar.sh && sudo bash instalar.sh && rm instalar.sh
-sleep 5
-clear
+echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+read #enter
 211c;;
  4)
- 211c;;
+echo -e "\033[1;36mVPSManager é um script gerenciador criado por Phreaker56.\033[0m"
+clear
+echo -e "\033[1;36m       Iniciando instalação do VPSManager.\033[0m"
+sleep 3
+apt-get update -y 
+apt-get install wget sudo -y
+clear
+wget http://phreaker56.wap.sh/vpsmanagersetup.sh
+chmod +x vpsmanagersetup.sh
+./vpsmanagersetup.sh
+echo ""
+echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+read #enter 
+211c
+;;
+ 5)
+   211c;;
+  6)
+   2;;
  *)
   id > /dev/null 2> /dev/null
  esac
-2034C
