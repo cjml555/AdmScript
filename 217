@@ -64,14 +64,12 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	while :
 	do
 	clear
-		echo -e "\033[1;31mOpenVPN já está instalado.\033[0m"
-		echo ""
 		echo -e "\033[1;36mO que você deseja fazer?\033[0m"
 		echo ""
 		echo -e "\033[1;36m1| Adicionar um certificado para um novo usuário.\033[0m"
 		echo -e "\033[1;36m2| Remover o certificado de um usuário existente.\033[0m"
 		echo -e "\033[1;36m3| Desinstalar o OpenVPN.\033[0m"
-		echo -e "\033[1;36m4| Voltar"
+		echo -e "\033[1;36m4| Voltar. \033[1;31m"
 		echo ""
 		read -p "Opção: " option
 		case $option in
