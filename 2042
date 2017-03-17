@@ -2,7 +2,7 @@
 
 if [ -f /bin/badvpn ]
   then
-    echo -e "\033[1;31mErro! BadVPN não está instalado.\033[0m"
+    echo -e "\033[1;31mErro! BadVPN n tah instalado.\033[0m"
     echo " "
     echo -n -e "\033[1;35mDeseja instalar o BadVPN (S/n):\033[0m"
     
