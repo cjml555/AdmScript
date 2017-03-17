@@ -156,6 +156,8 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 				rm -rf /usr/share/doc/openvpn*
 				echo ""
 				echo -e "\033[1;31mConcluído. OpenVPN desinstalado com sucesso!\033[0m"
+                sleep 5
+                2
 			else
 				echo ""
 				echo -e "\033[1;36mDesinstalação do OpenVPN cancelada :) \033[0m"
