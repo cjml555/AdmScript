@@ -5,13 +5,13 @@ echo -e "\033[1;36mEscolha uma opção desejada.\033"
 echo " "
 echo -e "
 \033[1;36m1|Instalar
-  \033[0;37m|Instalar o BadVPN, programa que libera serviços VOIP (WhatsApp) e jogos online.
+ \033[0;37m|Instalar o BadVPN, programa que libera serviços VOIP (WhatsApp) e jogos online.
 \033[1;36m2|Iniciar
-  \033[0;37m|Iniciar o BadVPN.
+ \033[0;37m|Iniciar o BadVPN.
 \033[1;36m3|Parar
-  \033[0;37m|Parar o BadVPN.
+ \033[0;37m|Parar o BadVPN.
 \033[1;36m4|Voltar
-  \033[0;37m|voltar paro o menu anterior.\033[0m"
+ \033[0;37m|voltar paro o menu anterior.\033[0m"
 read -p "Opção:" opcao
 
 case $opcao in
