@@ -116,6 +116,7 @@ if [ -f /bin/adm ]
   true
   else
    echo -e "\033[1;36mAdmScript, script baseado no VpsPack que tem o objetivo de lhe ajudar, sem a necessidade de guardar scripts ou comandos.\033[0m"
+   echo " "
    echo -e "\033[1;31mPara prosseguir pressione ENTER, para cancelar CTRL + C.\033[0m"
    read  #enter
    echo " "
