@@ -2,22 +2,22 @@
 
 clear
 if readlink /proc/$$/exe | grep -qs "dash"; then
-	echo -e "\033[1;36mErro! Este script precisa ser executado com o interpretador bash, não com o sh.\033[0m"
+	echo -e "\033[1;36mError! Este script nesecita ser executado con un interpretador bash, no como sh.\033[0m"
 	exit 1
 fi
 
 if [[ "$EUID" -ne 0 ]]; then
-	echo -e "\033[1;31mErro! Você precisa executar esse script como root.\033[0m"
+	echo -e "\033[1;31mError! Usted necesita ejecutar este cript como root.\033[0m"
 	exit 2
 fi
 
 if [[ ! -e /dev/net/tun ]]; then
-	echo -e "\033[1;31mErro! O Adaptador TUN não está disponível. Entre em contato com o suporte do seu serviço de hospedagem.\033[0m"
+	echo -e "\033[1;31mError! El Adaptador TUN no esta disponible. Contacte con el servicio de soporte de su hospedaje.\033[0m"
 	exit 3
 fi
 
 if grep -qs "CentOS release 5" "/etc/redhat-release"; then
-	echo -e "\033[1;31mErro! O CentOS 5 está desatualizado, atualize para a versão mais recente para instalar.\033[0m"
+	echo -e "\033[1;31mError! El CentOS 5 está desactualizado, actualize a la vercion mas reciente.\033[0m"
 	exit 4
 fi
 if [[ -e /etc/debian_version ]]; then
@@ -31,7 +31,7 @@ elif [[ -e /etc/centos-release || -e /etc/redhat-release ]]; then
 	# Needed for CentOS 7
 	chmod +x /etc/rc.d/rc.local
 else
-	echo "\033[1;31mErro! Você não está rodando este script no sistema Debian, Ubuntu ou CentOS.\033[0m"
+	echo "\033[1;31mError! Usted no esta corriendo este script en un sistema Debian, Ubuntu o CentOs.\033[0m"
 	exit 5
 fi
 
@@ -52,9 +52,9 @@ newclient () {
 	echo "</tls-auth>" >> ~/$1.ovpn
 }
 
-# Try to get our IP from the system and fallback to the Internet.
-# I do this to make the script compatible with NATed servers (lowendspirit.com)
-# and to avoid getting an IPv6.
+# Try to get our IP from the system and fallback to the Internet. Trata de conseguir nuestra IP del sistema y el repliegue a Internet
+# I do this to make the script compatible with NATed servers (lowendspirit.com)  Lo hago para hacer que el script compatible con los servidores NAT-ed
+# and to avoid getting an IPv6.      y para evitar conseguir una IPv6
 IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 if [[ "$IP" = "" ]]; then
 		IP=$(wget -qO- ipv4.icanhazip.com)
@@ -64,19 +64,19 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	while :
 	do
 	clear
-		echo -e "\033[1;36mO que você deseja fazer?\033[0m"
+		echo -e "\033[1;36mQue deseas hacer?\033[0m"
 		echo ""
-		echo -e "\033[1;36m1| Adicionar um certificado para um novo usuário.\033[0m"
-		echo -e "\033[1;36m2| Remover o certificado de um usuário existente.\033[0m"
-		echo -e "\033[1;36m3| Desinstalar o OpenVPN.\033[0m"
-		echo -e "\033[1;36m4| Voltar.\033[1;31m"
+		echo -e "\033[1;36m1| Añadir un certificado para un nuevo usuario.\033[0m"
+		echo -e "\033[1;36m2| Eliminar un certificado de un usuario existente.\033[0m"
+		echo -e "\033[1;36m3| Desinstalar OpenVPN.\033[0m"
+		echo -e "\033[1;36m4| Regresar.\033[1;31m"
 		echo ""
 		read -p "Opção: " option
 		case $option in
 			1) 
 			echo ""
-			echo -e "\033[1;36mDiga-me um nome para criar o certificado do usuário.\033[0m"
-			echo -e "\033[1;31mPor favor, use apenas uma única palavra, sem caracteres especiais.\033[0m"
+			echo -e "\033[1;36mIngresa el nombre para crear el certificado de usuario.\033[0m"
+			echo -e "\033[1;31mPor favor, usa una palabra unica y sin caracteres especiales.\033[0m"
 			echo ""
 			read -p "Nome do usuário: " -e -i cliente CLIENT
 			cd /etc/openvpn/easy-rsa/
@@ -85,7 +85,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			echo ""
 			newclient "$CLIENT"
 			echo ""
-			echo -e "\033[1;36mO usuário \033[1;31m$CLIENT \033[1;36mfoi adicionado, certificado disponível em \033[1;31m ~/$CLIENT.ovpn\033[0m"
+			echo -e "\033[1;36mEl usuario \033[1;31m$CLIENT \033[1;36mfue agregado,certificado disponible en \033[1;31m ~/$CLIENT.ovpn\033[0m"
 			exit
 			;;
 			2)
@@ -94,16 +94,16 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			NUMBEROFCLIENTS=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep -c "^V")
 			if [[ "$NUMBEROFCLIENTS" = '0' ]]; then
 				echo ""
-				echo -e "\033[1;31mVocê não tem nenhum usuário existente no OpenVPN!\033[0m"
+				echo -e "\033[1;31mUsted no tiene ningún usuario existente en OpenVPN!\033[0m"
 				exit 6
 			fi
 			echo ""
-			echo -e "\033[1;36mSelecione o certificado do usuário que deseja remover.\033[0m"
+			echo -e "\033[1;36mSelecione el certificado del usuário que desea eliminar.\033[0m"
 			tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep "^V" | cut -d '=' -f 2 | nl -s ') '
 			if [[ "$NUMBEROFCLIENTS" = '1' ]]; then
-				read -p "Selecione um usuário [1]: " CLIENTNUMBER
+				read -p "Selecione un usuário [1]: " CLIENTNUMBER
 			else
-				read -p "Selecione um usuário [1-$NUMBEROFCLIENTS]: " CLIENTNUMBER
+				read -p "Selecione un usuário [1-$NUMBEROFCLIENTS]: " CLIENTNUMBER
 			fi
 			CLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep "^V" | cut -d '=' -f 2 | sed -n "$CLIENTNUMBER"p)
 			cd /etc/openvpn/easy-rsa/
@@ -117,11 +117,11 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			# CRL is read with each client connection, when OpenVPN is dropped to nobody
 			chown nobody:$GROUPNAME /etc/openvpn/crl.pem
 			echo ""
-			echo -e "\033[1;31mCertificado para o usuário \033[1;35m$CLIENT \033[1;31mremovido.\033[0m"
+			echo -e "\033[1;31mCertificado para el usuário \033[1;35m$CLIENT \033[1;31meliminado.\033[0m"
 			exit
 			;;
 			3) 
-			echo -e "\033[1;36mVocê realmente quer desinstalar o OpenVPN? (s/N):\033[0m"
+			echo -e "\033[1;36mUsted realmente quiere desinstalar OpenVPN? (s/N):\033[0m"
 			read -p "" -e -i n REMOVE
 			if [[ "$REMOVE" = 's' ]]; then
 				PORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d " " -f 2)
@@ -154,12 +154,12 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 				rm -rf /usr/share/doc/openvpn*
                 clear
 				echo ""
-				echo -e "\033[1;31mConcluído. OpenVPN desinstalado com sucesso!\033[0m"
+				echo -e "\033[1;31mTerminado. OpenVPN desinstalado de manera satisfactoria!\033[0m"
                 sleep 3
                 2
 			else
 				echo ""
-				echo -e "\033[1;36mDesinstalação do OpenVPN cancelada :) \033[0m"
+				echo -e "\033[1;36mDesinstalacion de OpenVPN cancelada :) \033[0m"
 			fi
 			exit
 			;;
@@ -168,20 +168,20 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	done
 else
 	clear
-	echo -e "\033[1;36mInstalador do OpenVPN.\033[0m"
-	echo -e "\033[1;36mScript traduzido e adaptado por Devim.\033[0m"
+	echo -e "\033[1;36mInstalador de OpenVPN.\033[0m"
+	echo -e "\033[1;36mScript traducido y adaptado por cjml555(@Textex_Mod).\033[0m"
 	echo -e "\033[1;36mScript original: \033[1;35mhttps://github.com/Nyr/openvpn-install\033[0m"
 	echo ""
 	echo ""
-	echo -e "\033[1;36mConfirme o endereço IPv4 da interface de rede externa do seu servidor.\033[0m"
+	echo -e "\033[1;36mConfirme la direccion IPv4 de la interface de red externa de su servidor.\033[0m"
 	read -p "Endereço IP: " -e -i $IP IP
 	echo ""
-	echo -e "\033[1;36mEm qual porta você quer rodar o OpenVPN?\033[0m"
+	echo -e "\033[1;36mEn que puerto quieres iniciar OpenVPN?\033[0m"
 	read -p "Porta: " -e -i 8090 PORT
 	echo ""
-	echo -e "\033[1;36mQual DNS você quer usar com este VPN?\033[0m"
+	echo -e "\033[1;36mQue DNS quieres usar con este VPN?\033[0m"
 	echo ""
-	echo -e "\033[1;31m* \033[1;35m1 DNS padrão do sistema.\033[0m"
+	echo -e "\033[1;31m* \033[1;35m1 DNS por defecto.\033[0m"
 	echo -e "\033[1;31m* \033[1;35m2 Google.\033[0m"
 	echo -e "\033[1;31m* \033[1;35m3 OpenDNS.\033[0m"
 	echo -e "\033[1;31m* \033[1;35m4 NTT.\033[0m"
@@ -190,15 +190,15 @@ else
 	echo ""
 	read -p "DNS [1-6]: " -e -i 6 DNS
 	echo ""
-	echo -e "\033[1;36mQual o nome desejado para o certificado do usuário?\033[0m"
-	echo -e "\033[1;35mPor favor, use apenas uma única palavra, sem caracteres especiais.\033[0m"
+	echo -e "\033[1;36mCual es el nombre deseado para el certificado de usuario?\033[0m"
+	echo -e "\033[1;35mPor favor, use una palabra unica, sin caracteres especiales.\033[0m"
 	echo ""
-	read -p "Nome do usuário: " -e -i cliente CLIENT
+	read -p "Nombre de usuário: " -e -i cliente CLIENT
 	echo ""
-	echo -e "\033[1;36mCerto, isso é tudo o que eu precisava. Vamos configurar o seu servidor OpenVPN.\033[0m"
-    echo -e "\033[1;35mA configuração pode demorar bastante, seja paciente..\033[0m."
+	echo -e "\033[1;36mEstá bien, eso es todo lo que necesitaba. Vamos a configurar el servidor OpenVPN.\033[0m"
+    echo -e "\033[1;35mLa configuración puede tardar mucho tiempo, sea paciente..\033[0m."
 	echo ""
-    echo -e "\033[1;31mPressione qualquer tecla para continuar...\033[0m"
+    echo -e "\033[1;31mPresiona cualquier tecla para continuar...\033[0m"
 	read -n1 -r -p ""
 		if [[ "$OS" = 'debian' ]]; then
 		apt-get update
@@ -349,10 +349,10 @@ crl-verify crl.pem" >> /etc/openvpn/server.conf
 	EXTERNALIP=$(wget -qO- ipv4.icanhazip.com)
 	if [[ "$IP" != "$EXTERNALIP" ]]; then
 		echo ""
-		echo -e "\033[1;31mSeu servidor está atrás de uma interface NAT!\033[0m"
+		echo -e "\033[1;31mSu servidor está atrás de una interface NAT!\033[0m"
 		echo ""
-		echo -e "\033[1;36mSe seu servidor usa NAT (ex. LowEndSpirit), Eu preciso saber o endereço IP externo.\033[0m"
-		echo -e "\033[1;36mSe não for o caso, apenas ignore isso e deixe o próximo campo em branco.\033[0m"
+		echo -e "\033[1;36mSu servidor usa NAT (ex. LowEndSpirit), Es nesesario saber la direccion IP externa.\033[0m"
+		echo -e "\033[1;36mSi no es el caso, simplemente ignorarlo y dejar que el siguiente campo en blanco.\033[0m"
 		read -p "IP Externo: " -e USEREXTERNALIP
 		if [[ "$USEREXTERNALIP" != "" ]]; then
 			IP=$USEREXTERNALIP
@@ -379,9 +379,9 @@ verb 3
 	# Generates the custom client.ovpn
 	newclient "$CLIENT"
 	echo ""
-	echo -e "\033[1;36mConcluído!\033[0m"
+	echo -e "\033[1;36mTerminado!\033[0m"
 	echo ""
-	echo -e "\033[1;36mO Certificado do usuário \033[1;31m$CLIENT \033[1;36mestá disponível em\033[1;31m ~/$CLIENT.ovpn\033[0m"
-	echo -e "\033[1;36mSe você quiser adicionar mais usuários, basta executar este script novamente.\033[0m"
+	echo -e "\033[1;36mO Certificado de usuário \033[1;31m$CLIENT \033[1;36mestá disponíble en\033[1;31m ~/$CLIENT.ovpn\033[0m"
+	echo -e "\033[1;36mSi quieres agregar mas usuarios, basta con ejecutar este script nuevamente.\033[0m"
 	echo ""
 fi

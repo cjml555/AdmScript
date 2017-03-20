@@ -7,13 +7,13 @@ else
  if echo $(id) |grep sudo > /dev/null
  then
  clear
- echo "Não é root e nem tem direitos root."
- echo "Parabéns seu usuario esta no grupo sudo."
- echo -e "Para virar root execute \033[1;31msudo su\033[0m"
+ echo "No eres root y no tienes permisos root."
+ echo "Felicidades su usuario esta en el grupo sudo."
+ echo -e "Para cambiar a root ejecuta \033[1;31msudo su\033[0m"
  exit
  else
  clear
- echo -e "Você nao esta como usuario root, nem com seus direitos (sudo)\nPara virar root execute \033[1;31msu\033[0m e digite sua senha root"
+ echo -e "No estas como usuario root, ni con sus permisos root (sudo)\nPara cambiar a root executa \033[1;31msu\033[0m y digita tu contraseña"
  exit
  fi
 fi
@@ -21,20 +21,20 @@ fi
 clear
 echo " "
 echo -e "\033[1;36m       .....:::AdmScript, created by Mr.Devim:::.....\033[0m"
-echo -e "\033[1;37mPara executar um comando escolha uma das opçoẽs abaixo.\033[0m"  
+echo -e "\033[1;37mPara ejecutar un comando escoje una de las opciones de abajo.\033[0m"  
 
-echo -e "\033[1;31mPara sair precione Ctrl + C\033
+echo -e "\033[1;31mPara salir presiona Ctrl + C\033
  \033[1;36m1|Hardware
- \033[0;37m|Informações sobre o hardware desse servidor.
+ \033[0;37m|Informacion sobre el hardware del servidor.
 \033[1;36m2|Sistema
- \033[0;37m|Configuração e informações sobre o sistema desse servidor.
+ \033[0;37m|Configuracion e informacion sobre el sistema del servidor.
 \033[1;36m3|Sobre
- \033[0;37m|Informações sobre o Adm Script.
+ \033[0;37m|Informacion sobre Adm Script.
 \033[1;36m4|Tutorial
- \033[0;37m|Aprenda tudo e domine o AdmScript
+ \033[0;37m|Aprenda todo y domina el AdmScript
 \033[1;36m5|Desinstalar
- \033[0;37m|Desinstalar o AdmScript.\033[0m"
-read -p "Opção:" opcao
+ \033[0;37m|Desinstalar AdmScript.\033[0m"
+read -p "Opcion:" opcao
 
 case $opcao in
  1)

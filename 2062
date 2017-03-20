@@ -1,23 +1,23 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mIsso irá atualizar a lista de pacotes do seu sistema e atualizar todos os seus pacotes instalados para suas versões mais recentes.\033[0m" 
-echo -e "\033[1;31mPara prosseguir pressione ENTER, para cancelar CTRL + C.\033[0m"
+echo -e "\033[1;36mEsto actualizara la lista de paquetes de tu sistema y actualizara todos los paquetes instalados a sus verciones mas recientes.\033[0m" 
+echo -e "\033[1;31mPara continuar presiona ENTER, para cancelar CTRL + C.\033[0m"
 read  #enter
-echo -e "\033[1;31mIniciando instalação, aguarde.\033[0m".
+echo -e "\033[1;31mIniciando instalacion, espera.\033[0m".
 sleep 3
 sudo apt-get update -y
 clear
-echo -e "\033[1;36m1° ETAPA CONCLUÍDA COM ÊXITO, LISTA DE PACOTES ATUALIZADA.\033[0m"
+echo -e "\033[1;36m1° ETAPA CONCLUÍDA CON ÊXITO, LISTA DE PAQUETES ACTUALIZADA.\033[0m"
 echo -e "\033[1;31mINICIANDO 2° ETAPA.\033[0m"
 sleep 5
 sudo apt-get dist-upgrade
 clear
-echo -e "\033[1;36m2° ETAPA CONCLUÍDA COM ÊXITO. TODOS OS SEUS PACOTES FORAM ATUALIZADOS PARA SUAS VERSÕES MAIS RECENTES.\033[0m"
+echo -e "\033[1;36m2° ETAPA CONCLUÍDA CON ÊXITO. TODOS LOS PAQUETES FUERON ACTUALIZADOS.\033[0m"
 echo ""
-echo -e "\033[1;31mCONCLUINDO.\033[0m"
+echo -e "\033[1;31mTERMINADO.\033[0m"
 echo ""
 sleep 3
 clear
-echo -e "\033[1;36m                   Atualização concluída com êxito.\033[0m"
+echo -e "\033[1;36m                   Actualizacion terminada con êxito.\033[0m"
 2

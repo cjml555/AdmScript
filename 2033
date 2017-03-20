@@ -1,10 +1,10 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mPackSSH é um script para criar, apagar, definir limite de usuários, etc. PackSSH foi criado por Mr.SSH.\033[0m"
-echo -e "\033[1;31mPara prosseguir com a instalação pressione ENTER, para cancelar CTRL + C\033[0m"
+echo -e "\033[1;36mPackSSH es un script para crear, eliminar, definir limite de usuários, etc. PackSSH fue creado por Mr.SSH.\033[0m"
+echo -e "\033[1;31mPara continuar con la instalacion presione ENTER, para cancelar CTRL + C\033[0m"
 read  #enter
-echo -e "\033[1;36m         Iniciando instalação do PackSSH.\033[0m"
+echo -e "\033[1;36m         Iniciando instalacion de PackSSH.\033[0m"
 sleep 2
 rm install
 rm install.1
@@ -14,6 +14,6 @@ apt-get install wget sudo -y
 clear
 wget https://raw.githubusercontent.com/JorisBRA/jorisBra/master/InstallerPackSSH && bash InstallerPackSSH
 clear
-echo -e \033[1;36m User o comando \033[1;36mPackSSH \033[1;36mpara ter acesso às opções.\033[0m
+echo -e \033[1;36m Usar el comando \033[1;36mPackSSH \033[1;36mpara tener acesso a las opciones.\033[0m
 sleep 3
 203

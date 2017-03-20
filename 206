@@ -1,16 +1,16 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mEscolha uma das opçoẽs desejado abaixo.\033[0m"
+echo -e "\033[1;36mEscoja una de las opciones siguientes.\033[0m"
 echo -e "\033[1;36m1 |OS
-  \033[0;37m|Atualizar sistema operacional (Ubuntu ou Debian). 
-\033[1;36m2 |Pacote
-  \033[0;37m|Atualizar lista de pacotes e todos os pacotes instalados para versão mais recentes.
-\033[1;36m3 |Segurança
-  \033[0;37m|Instala atualizações de segurança em sistemas Ubuntu e Debian.
-\033[1;36m4 |Voltar
-  \033[0;37m|Voltar ao menu anterior.\033[0m"
-read -p "Opção:" opcao
+  \033[0;37m|Actualizar sistema operacional (Ubuntu ou Debian). 
+\033[1;36m2 |Paquetes
+  \033[0;37m|Actualizar lista de paquetes y todos los paquetes instalados.
+\033[1;36m3 |Seguridad
+  \033[0;37m|Instala actualizaciones de seguridad en sistemas Ubuntu e Debian.
+\033[1;36m4 |Regresar
+  \033[0;37m|regresar al menu anterior.\033[0m"
+read -p "Opcion:" opcao
 
 case $opcao in
  1)

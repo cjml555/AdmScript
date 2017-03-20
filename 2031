@@ -1,10 +1,10 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mVpsPack é um ótimo script para criar, apagar, definir limite de usuários, etc. VpsPack foi criado por Luiz.\033[0m" 
-echo -e "\033[1;31mPara prosseguir com a instalação aperte ENTER, para cancelar CTRL + C\033[0m"
+echo -e "\033[1;36mVpsPack es un gran script para crear, eliminar, definir limite de usuarios, etc. VpsPack fue creado por Luiz.\033[0m" 
+echo -e "\033[1;31mPara continuar con la instalacion presiona ENTER, para cancelar CTRL + C\033[0m"
 read  #enter
-echo -e "\033[1;36m          Iniciando instalação do VpsPack.\033[0m"
+echo -e "\033[1;36m          Iniciando instalacion de VpsPack.\033[0m"
 sleep 2
 rm install
 rm install.1
@@ -14,6 +14,6 @@ apt-get install wget sudo -y
 clear
 wget https://raw.githubusercontent.com/RicKbrL/VpsPack/master/install && bash install
 echo " "
-echo -e "\033[1;31mPressione enter para concluir.\033[0m"
+echo -e "\033[1;31mPresiona enter para terminar.\033[0m"
 read  #enter
 203

@@ -1,13 +1,13 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mCONFVPS é o gerenciador feito por Glemysson, script lembra um pouco o VPSMANAGER.\033[0m"
-echo -e "\033[1;31mPara prosseguir com a instalação pressione ENTER, para cancelar CTRL + C\033[0m"
+echo -e "\033[1;36mCONFVPS es un manager hecho por Glemysson, script se parece un poco a VPSMANAGER.\033[0m"
+echo -e "\033[1;31mPara continuar con la instalacion presione ENTER, para cancelar CTRL + C\033[0m"
 read  #enter
 rm install
 rm install
 clear
-echo -e "\033[1;36m       Iniciando instalação do CONFVPS.\033[0m"
+echo -e "\033[1;36m       Iniciando instalacion de CONFVPS.\033[0m"
 sleep 3
 apt-get update -y
 apt-get install wget sudo -y

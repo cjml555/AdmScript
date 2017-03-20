@@ -8,27 +8,27 @@ else
         if echo $(id) |grep sudo > /dev/null
         then
         clear
-        echo "Voce não é root"
-        echo "Seu usuario esta no grupo sudo"
-        echo -e "Para virar root e fazer a instalação execute \033[1;31msudo su\033[0m"
+        echo "No eres Root"
+        echo "Su usuario no esta en el grupo sudo"
+        echo -e "Para convertirse en root y ejecutar la instalación \033[1;31msudo su\033[0m"
         exit
         else
         clear
-        echo -e "Você pecisa esta como root para poder fazer a instalção, Para virar root execute \033[1;31msu\033[0m e digite sua senha root"
+        echo -e "Es necesario ser root para poder instalar, para convertirse en root ejecute \033[1;31msu\033[0m y digite su contraseña"
         exit
         fi
 fi
 
 if [ -f /bin/adm ]
   then
-  echo -e "\033[1;36mAdmScript já está instalado, será necessário a desinstalação da versão atual para a instalar novamente.\033[0m"
+  echo -e "\033[1;36mAdmScript ya está instalado, será necesaria una desinstalacion de la vercion actual para instalar nuevamente.\033[0m"
   echo " "
-  echo -e "\033[1;31mDeseja desinstalar o AdmScript instalado atualmente? (S/n)\033[0m"
+  echo -e "\033[1;31mDesea desinstalar el AdmScript instalado atualmente? (S/n)\033[0m"
   
   read resp
   if [ "$resp" == "S" ];then
       echo ""
-      echo -e "\033[1;36mDesinstalando o AdmScript, aguarde...\033[0m"
+      echo -e "\033[1;36mDesinstalando AdmScript, espere...\033[0m"
         rm /bin/adm
         rm /bin/1
         rm /bin/2
@@ -66,9 +66,9 @@ if [ -f /bin/adm ]
    sleep 3
    rm /bin/5
    clear
-   echo -e "\033[1;31m               Desinstalação concluída.\033[0m"
+   echo -e "\033[1;31m               Desinstalacion concluída.\033[0m"
    sleep 2
-   echo -e "\033[1;36m         Iniciando instalação, aguarde...\033[0m"
+   echo -e "\033[1;36m         Iniciando instalacion, espere...\033[0m"
    sleep 3
    if yum
    then
@@ -85,8 +85,8 @@ if [ -f /bin/adm ]
    mv $arqs /bin
    chmod +x /bin/$arqs
    done
-   echo -e "\033[1;36mConcluído, execute o comando \033[1;31madm\033[1;36m como usuário root ou usuário com permissões sudo.\033[0m"
-   echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+   echo -e "\033[1;36mTerminado, execute el comando \033[1;31madm\033[1;36m como usuário root o usuario con permiso sudo.\033[0m"
+   echo -e "\033[1;31mPresiona ENTER para terminar.\033[0m"
    read #enter
    adm
    else
@@ -103,24 +103,24 @@ if [ -f /bin/adm ]
    mv $arqs /bin
    chmod +x /bin/$arqs
    done
-   echo -e "\033[1;36mConcluido, execute o comando \033[1;31madm \033[1;36mcomo usuário root ou usuário com permissões sudo.\033[0m"
-   echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+   echo -e "\033[1;36mTerminado, execute el comando \033[1;31madm \033[1;36m como usuário root o usuario con permiso sudo.\033[0m"
+   echo -e "\033[1;31mPressiona ENTER para terminar.\033[0m"
    read #enter
    adm
    fi
    elif [ $resp -eq "n" ];then
-    echo -e "\033[1;31m              Desinstalação cancelada.\033[0m"
+    echo -e "\033[1;31m              Desinstalacion cancelada.\033[0m"
     sleep 1
     adm
   fi
   true
   else
-   echo -e "\033[1;36mAdmScript, script baseado no VpsPack que tem o objetivo de lhe ajudar, sem a necessidade de guardar scripts ou comandos.\033[0m"
+   echo -e "\033[1;36mAdmScript, script basado en VpsPack que tiene como objetivo ayudar, sin necesidad de aprender scripts o comandos.\033[0m"
    echo " "
-   echo -e "\033[1;31mPara prosseguir pressione ENTER, para cancelar CTRL + C.\033[0m"
+   echo -e "\033[1;31mPara continuar pressione ENTER, para cancelar CTRL + C.\033[0m"
    read  #enter
    echo " "
-   echo -e "\033[1;36m         Iniciando instalação, aguarde...\033[0m"
+   echo -e "\033[1;36m         Iniciando instalacion, espere...\033[0m"
    sleep 3
    if yum -y update
    then
@@ -137,8 +137,8 @@ if [ -f /bin/adm ]
    mv $arqs /bin
    chmod +x /bin/$arqs
    done
-   echo -e "\033[1;36mConcluido, execute o comando \033[1;31madm\033[1;36m como usuário root ou usuário com permissões sudo.\033[0m"
-   echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+   echo -e "\033[1;36mTerminado, execute el comando \033[1;31madm\033[1;36m como usuário root o usuario con permiso sudo.\033[0m"
+   echo -e "\033[1;31mPressiona ENTER para terminar.\033[0m"
    read #enter
    adm
    else
@@ -155,8 +155,8 @@ if [ -f /bin/adm ]
    mv $arqs /bin
    chmod +x /bin/$arqs
    done
-   echo -e "\033[1;36mConcluído, execute o comando \033[1;31madm \033[1;36mcomo usuário root ou usuário com permissões sudo.\033[0m"
-   echo -e "\033[1;31mPressione ENTER para concluir.\033[0m"
+   echo -e "\033[1;36mTerminado, execute el comando \033[1;31madm \033[1;36m como usuário root o usuário con permisos sudo.\033[0m"
+   echo -e "\033[1;31mPressiona ENTER para terminar.\033[0m"
    read #enter
    adm
   fi

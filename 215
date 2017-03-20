@@ -1,34 +1,34 @@
 
 clear
-echo -e "\033[1;31mATENCAO: \033[1;36mN utilize usuarios do grupo sudo para tunelamento SSH (ehi, ePro, ktc, etc). Caso contrario vc estara deixando seu servidor vulneravel.\033[0m"
-echo -e "\033[1;35mPressione enter para continuar e \033[1;31mCTRL + X para sair.\033[0m"
+echo -e "\033[1;31mATENCION: \033[1;36mNO utilize usuarios de grupo sudo para tunel SSH (ehi, ePro, ktc, etc). Caso contrario estaras dejando tu servidor vulnerable.\033[0m"
+echo -e "\033[1;35mPresione enter para continuar o \033[1;31mCTRL + X para salir.\033[0m"
 read #enter
 clear
 if [ $(id -u) -eq 0 ]; then
-    echo -e "\033[1;36mDigite os dados do novo usuario.\033[0m"
-	read -p "Digite o nome : " username
-	read -s -p "Digite a senha : " password
+    echo -e "\033[1;36mEscribe los datos del nuevo usuario.\033[0m"
+	read -p "Escribe el nombre: " username
+	read -s -p "Escribe la Contraseña : " password
 	egrep "^$username" /etc/passwd >/dev/null
 	if [ $? -eq 0 ]; then
-		echo -e "\033[1;31m$username ja existe!"
+		echo -e "\033[1;31m$Usuario ya existe!"
 		exit 1
 	else
 		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 		useradd -m -p $pass $username
         echo " "
         clear 
-		[ $? -eq 0 ] && echo " " || echo -e "\033[1;31mDesculpe, mas um ouve um erro ao criar o usuário $username!\033[0m"
+		[ $? -eq 0 ] && echo " " || echo -e "\033[1;31mDisculpa, pero hubo un error al crear el usuario $username!\033[0m"
         sleep 1
         sudo addgroup $username sudo
         clear
-        echo -e "\033[1;36mUsuario $username foi criado e acionado ao grupo sudo.\033[0m"
-        echo -e "\033[1;35mEm vez de usar o root, use o usuario $username para entrar no servidor.\033[0m"
+        echo -e "\033[1;36mUsuario $username fue creado y añadido a el grupo sudo.\033[0m"
+        echo -e "\033[1;35mEn vez de usar root, use el usuario $username para entrar al servidor.\033[0m"
         echo " "
         echo -e "\033[1;31mPressione enter para finalizar.\033[0m"
         read #enter
         2
 	fi
 else
-	echo -e "\033[1;31mSomente o root pode adicionar um usuario ao sistema.\033[0m"
+	echo -e "\033[1;31mUnicamente un usuario root puede agregar usuarios.\033[0m"
 	exit 2
 fi

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 clear
-read -p "Digite o novo hostname da maquina: " hostname
+read -p "Escribe el nuevo hostname de la maquina: " hostname
 hostname $hostname
-echo -e "\033[1;36m Hostname atualizado, encerre essa sesso SSH e entre novamente.\033[0m"
+echo -e "\033[1;36m Hostname actualizado, cierra esta sesion SSH y entre nuevamente.\033[0m"
 sleep 3
 2

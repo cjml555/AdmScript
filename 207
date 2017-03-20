@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;31mRealizando testes...\033[0m"
+echo -e "\033[1;31mRealizando Pruebas...\033[0m"
 ping=$(ping -c1 google.com |awk '{print $8 $9}' |grep -v loss |cut -d = -f2 |sed ':a;N;s/\n//g;ta')
 echo -e "\033[1;36mPing:\033[0m $ping"
 velo=$(207.py |grep load:)

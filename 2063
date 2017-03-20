@@ -1,25 +1,25 @@
 #!/bin/bash 
 
 clear
-echo -e "\033[1;36mSerá instalada atualizações de segurança, pode demorar um pouco, seja paciente.\033[0m" 
-echo -e "\033[1;31mPara prosseguir pressione ENTER, para cancelar CTRL + C.\033[0m"
+echo -e "\033[1;36mSerán instaladas atualizaciones de seguridad, puede demorar un poco, sea paciente.\033[0m" 
+echo -e "\033[1;31mPara continuar presione ENTER, para cancelar CTRL + C.\033[0m"
 read  #enter
-echo -e "\033[1;31mIniciando, aguarde.\033[0m".
+echo -e "\033[1;31mIniciando, espera.\033[0m".
 sleep 3
 sudo apt-get update -y
 echo ""
-echo -e "\033[1;36m1° ETAPA CONCLUÍDA.\033[1;36m.\033[0m"
+echo -e "\033[1;36m1° ETAPA 1 CONCLUÍDA.\033[1;36m.\033[0m"
 echo -e "\033[1;31mINICIANDO 2° ETAPA.....\033[0m"
 sleep 5
 sudo apt-get upgrade -y
 echo ""
-echo -e "\033[1;36m2° ETAPA CONCLUÍDA.\033[0m"
+echo -e "\033[1;36m2° ETAPA 2 CONCLUÍDA.\033[0m"
 echo -e "\033[1;31mINICIANDO 3° ETAPA\033[0m"
 sleep 3
 apt-get dist-upgrade -y
 echo ""
-echo -e "\033[1;36m3° ETAPA CONCLUÍDA.\033[0m"
+echo -e "\033[1;36m3° ETAPA 3 CONCLUÍDA.\033[0m"
 sleep 1
 clear
-echo -e "\033[1;36m                   Atualização concluída com êxito.\033[0m"
+echo -e "\033[1;36m                   Atualizacion terminada con êxito.\033[0m"
 2

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;36mSeu SO será atualizado para a versão mais recente. \033[1;36mNão prossiga se não souber o que está fazendo.\033[0m"
-echo -e "\033[1;36mSerá exibidos textos em inglês. A atualização pode demorar muito, seja paciente.\033[0m"
-echo -e "\033[1;31mPara continuar pressione ENTER para cancelar CTRL + C \033[0m"
+echo -e "\033[1;36mTu SO será atualizado a la version mas reciente. \033[1;36mNo continues a menos que sepas lo que estas haciendo.\033[0m"
+echo -e "\033[1;36mSerán mostrados textos en ingles. La actualizacion puede demorar mucho, Se paciente.\033[0m"
+echo -e "\033[1;31mPara continuar presione ENTER, para cancelar CTRL + C \033[0m"
 read  #enter
 do-release-upgrade
 clear

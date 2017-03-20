@@ -1,11 +1,11 @@
 #!/bin/bash
 
 clear
-echo -e "\033[1;31m ATENÇÃO:\033[0m \033[1;35m Todas as conexões ssh existentes serão desconectadas.\033[0m"
-echo -n -e "\033[1;36m Deseja continuar? (S/n):\033[0m"
+echo -e "\033[1;31m ATENCION:\033[0m \033[1;35m Todas las conexiones ssh existentes seran desconectadas.\033[0m"
+echo -n -e "\033[1;36m Deseas continuar? (S/n):\033[0m"
 read resp
 if [ "$resp" == "S" ]; then
-    echo -e "\033[1;36mSeu servidor será reiniciado :-)\033[0m"
+    echo -e "\033[1;36mEL servidor será reiniciado :-)\033[0m"
     sudo reboot
     clear
     read dir

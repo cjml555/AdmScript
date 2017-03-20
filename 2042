@@ -12,19 +12,19 @@ if [ -f /bin/badvpn ]
         2
   true
   else
-    echo -e "\033[1;31mErro! BadVPN n tah instalado.\033[0m"
+    echo -e "\033[1;31mError! BadVPN no esta instalado.\033[0m"
     echo " "
-    echo -n -e "\033[1;35mDeseja instalar o BadVPN (S/n):\033[0m"
+    echo -n -e "\033[1;35mDeseas instalar BadVPN (S/n):\033[0m"
     
      read resp
       if [ "$resp" == "S" ]; then
-        echo -e "\033[1;31mInstalando, aguarde....\033[0m"
+        echo -e "\033[1;31mInstalando, espera....\033[0m"
         sleep 2
         wget https://raw.githubusercontent.com/RicKbrL/badvpn/master/easyinstall && bash easyinstall
         clear
-        echo -e "\033[1;36mInstalação Concluída :).\033[0m"
+        echo -e "\033[1;36mInstalacion Terminada :).\033[0m"
         sleep 1
-        echo -e "\033[1;36mIniciando o BadVPN.\033[0m"
+        echo -e "\033[1;36mIniciando BadVPN.\033[0m"
         badvpn start
         clear
         echo -e "\033[1;36mBadVPN iniciado.\033[0m"
